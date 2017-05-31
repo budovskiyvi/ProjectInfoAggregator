@@ -11,10 +11,10 @@ public class BusinessObject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "bo_name")
+	@Column(name = "name")
 	 private String name;
 	 
-	@Column(name = "bo_description")
+	@Column(name = "description")
 	private String description;
 	
 	@ManyToOne

@@ -14,10 +14,10 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 	
-	 @Column(name = "project_name")
+	 @Column(name = "name")
 	 private String name;
 	 
-	 @Column(name = "project_description")
+	 @Column(name = "description")
 	 private String description;
 	 
 	 @OneToMany(mappedBy="project")	 
