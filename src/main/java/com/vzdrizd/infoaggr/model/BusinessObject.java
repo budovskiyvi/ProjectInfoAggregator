@@ -1,5 +1,7 @@
 package com.vzdrizd.infoaggr.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class BusinessObject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+
 	@Column(name = "name")
 	 private String name;
 	 
@@ -20,6 +23,9 @@ public class BusinessObject {
 	@ManyToOne
 	@JoinColumn(name="project_id")
 	private Project project;
+	
+	@OneToMany(mappedBy="relatedObject")	 
+	 private Set<Relation> relations;
 
 	public int getId() {
 		return id;
@@ -51,6 +57,14 @@ public class BusinessObject {
 
 	public void setProject(Project project) {
 		this.project = project;
+	}
+	
+	public Set<Relation> getRelations() {
+		return relations;
+	}
+
+	public void setRelations(Set<Relation> relations) {
+		this.relations = relations;
 	}
 	
 	

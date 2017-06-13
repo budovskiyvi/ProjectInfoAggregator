@@ -27,6 +27,14 @@ public class Project {
 		return id;
 	}
 
+	public Set<BusinessObject> getBusinessObjects() {
+		return businessObjects;
+	}
+
+	public void setBusinessObjects(Set<BusinessObject> businessObjects) {
+		this.businessObjects = businessObjects;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

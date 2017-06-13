@@ -12,4 +12,34 @@ public class RelationType {
 	
 	@Column(name = "name")
 	private String name;
+	
+	@ManyToOne
+	@JoinColumn(name="inversre_relation_type_id")
+	@Column(name = "inversre_relation_type_id")
+	private RelationType inverseRelationType;
+	
+	
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public RelationType getInverseRelationType() {
+		return inverseRelationType;
+	}
+
+	public void setInverseRelationType(RelationType inverseRelationType) {
+		this.inverseRelationType = inverseRelationType;
+	}
 }
