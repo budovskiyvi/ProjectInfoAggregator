@@ -13,10 +13,10 @@ public class RelationType {
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="inversre_relation_type_id")
 	@Column(name = "inversre_relation_type_id")
-	private RelationType inverseRelationType;
+	private RelationType inverseRelationType;*/
 	
 	
 	public String getCode() {
@@ -35,11 +35,11 @@ public class RelationType {
 		this.name = name;
 	}
 
-	public RelationType getInverseRelationType() {
+/*	public RelationType getInverseRelationType() {
 		return inverseRelationType;
 	}
 
 	public void setInverseRelationType(RelationType inverseRelationType) {
 		this.inverseRelationType = inverseRelationType;
-	}
+	}*/
 }
