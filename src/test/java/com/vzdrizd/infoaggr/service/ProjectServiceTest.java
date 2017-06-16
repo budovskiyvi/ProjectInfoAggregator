@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.vzdrizd.infoaggr.model.Project;
 
 
-
 import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
@@ -19,15 +18,17 @@ public class ProjectServiceTest {
 
 	@Autowired
 	private TestEntityManager entityManager;
-
-
-	private ProjectService projectService;
-	
+/*
 	@Autowired(required=true)
 	@Qualifier(value = "projectService")
+	private ProjectService projectService;
+	
+	
 	public void setProjectService(ProjectService projectService) {
         this.projectService = projectService;
-    }
+    }*/
+	@Autowired
+	private ProjectService projectService;
 
 	private Project project = new Project();
 
