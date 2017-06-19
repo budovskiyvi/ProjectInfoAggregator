@@ -1,10 +1,23 @@
 package com.vzdrizd.infoaggr.model;
 
+import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "relation_type")
-public class RelationType {
+public class RelationType implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5699047085503982080L;
 
 	@Id
     @Column(name = "relation_type_cd")
@@ -13,33 +26,8 @@ public class RelationType {
 	@Column(name = "name")
 	private String name;
 	
-	/*@ManyToOne
-	@JoinColumn(name="inversre_relation_type_id")
-	@Column(name = "inversre_relation_type_id")
-	private RelationType inverseRelationType;*/
+	@OneToMany(mappedBy="relationType")	 
+	 private Set<Relation> relations;
 	
-	
-	public String getCode() {
-		return code;
-	}
 
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-/*	public RelationType getInverseRelationType() {
-		return inverseRelationType;
-	}
-
-	public void setInverseRelationType(RelationType inverseRelationType) {
-		this.inverseRelationType = inverseRelationType;
-	}*/
 }

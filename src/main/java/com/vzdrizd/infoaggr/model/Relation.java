@@ -1,11 +1,24 @@
 package com.vzdrizd.infoaggr.model;
 
+import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "relation")
-public class Relation {
+public class Relation implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7051557487067991417L;
+
 	@Id
     @Column(name = "relation_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,21 +27,9 @@ public class Relation {
 	@ManyToOne
 	@JoinColumn(name="bo_id")
 	private BusinessObject relatedObject;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public BusinessObject getRelatedObject() {
-		return relatedObject;
-	}
-
-	public void setRelatedObject(BusinessObject relatedObject) {
-		this.relatedObject = relatedObject;
-	}
+	
+	@ManyToOne
+	@JoinColumn(name="relation_type_cd")
+	private RelationType relationType;
 
 }
