@@ -14,17 +14,18 @@ import lombok.Setter;
 @Table(name = "relation_type")
 public class RelationType implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -5699047085503982080L;
 
 	@Id
     @Column(name = "relation_type_cd")
 	private String code;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name = "inName")
+	private String inName;
+	
+	@Column(name = "outName")
+	private String outName;
 	
 	@OneToMany(mappedBy="relationType")	 
 	 private Set<Relation> relations;

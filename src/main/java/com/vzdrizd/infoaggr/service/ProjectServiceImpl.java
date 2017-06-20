@@ -48,6 +48,8 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	@Transactional
 	public List<Project> listProjects() {
+		int i=1;
+		i=i+1;
 		return this.projectDao.listProjects();
 	}
 

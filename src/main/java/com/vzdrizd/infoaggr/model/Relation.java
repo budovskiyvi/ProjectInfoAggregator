@@ -25,8 +25,12 @@ public class Relation implements Serializable {
 	private String id;
 	
 	@ManyToOne
-	@JoinColumn(name="bo_id")
-	private BusinessObject relatedObject;
+	@JoinColumn(name="in_bo_id")
+	private BusinessObject inRelatedObject;
+	
+	@ManyToOne
+	@JoinColumn(name="out_bo_id")
+	private BusinessObject outRelatedObject;
 	
 	@ManyToOne
 	@JoinColumn(name="relation_type_cd")

@@ -36,8 +36,11 @@ public class BusinessObject implements Serializable{
 	@JoinColumn(name="project_id")
 	private Project project;
 	
-	@OneToMany(mappedBy="relatedObject")	 
-	 private Set<Relation> relations;
+	@OneToMany(mappedBy="inRelatedObject")	 
+	 private Set<Relation> inRelations;
+	
+	@OneToMany(mappedBy="outRelatedObject")	 
+	 private Set<Relation> outRelations;
 
 	
 	
