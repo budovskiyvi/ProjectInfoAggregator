@@ -4,14 +4,14 @@
 package com.vzdrizd.infoaggr.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -26,27 +26,24 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Project")
-public class Project implements Serializable{
-	
-	/**
+@Table(name = "bus_obj")
+public class BusinessObject implements Serializable{/**
 	 * 
 	 */
-	private static final long serialVersionUID = 381944294066184818L;
-
+	private static final long serialVersionUID = 5472225646645716499L;
+	
 	@Id
-    @Column(name = "project_id")
+    @Column(name = "bo_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	 @Column(name = "name")
+	@Column(name = "name")
 	 private String name;
 	 
-	 @Column(name = "description")
-	 private String description;
-
-	 @OneToMany(mappedBy="project")	 
-	 private Set<BusinessObject> businessObjects;
-	 
-	 
+	@Column(name = "description")
+	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name="project_id")
+	private Project project;
 }
