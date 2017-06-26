@@ -1,19 +1,11 @@
 package com.vzdrizd.infoaggr.dao;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.vzdrizd.infoaggr.model.Project;
 
+@Repository
+public interface ProjectDao extends JpaRepository<Project,Long>{
 
-public interface ProjectDao {
-	 
-	public void addProject(Project project);
-
-	    public void updateProject(Project project);
-
-	    public void removeProject(int id);
-
-	    public Project getProjectById(int id);
-
-	    public List<Project> listProjects();
 }

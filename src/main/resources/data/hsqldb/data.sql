@@ -1,0 +1,1 @@
+INSERT INTO Project (name,description) VALUES ('World','World!!');

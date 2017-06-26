@@ -1,17 +1,26 @@
+/**
+ * 
+ */
 package com.vzdrizd.infoaggr.service;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.vzdrizd.infoaggr.model.Project;
 
+/**
+ * @author V.Budovskiy
+ *
+ */
 public interface ProjectService {
-	 public void addProject(Project Project);
 
-	    public void updateProject(Project project);
-
-	    public void removeProject(int id);
-
-	    public Project getProjectById(int id);
-
-	    public List<Project> listProjects();
+	Collection<Project> findAll();
+	
+	Project findOne(Long id);
+	
+	Project create(Project project);
+	
+	Project update(Project project);
+	
+	void delete(Long id);
+	
 }
