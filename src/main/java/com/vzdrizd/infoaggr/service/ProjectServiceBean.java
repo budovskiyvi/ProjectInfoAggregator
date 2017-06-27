@@ -37,11 +37,11 @@ public class ProjectServiceBean implements ProjectService {
 
 	@Override
 	public Collection<Project> findAll() {
-		logger.info("> findAll");
+		logger.info("> start Project findAll");
 		
 		Collection<Project> projects=projectDao.findAll();
 		
-		logger.info("< findAll");
+		logger.info("< end Project findAll");
 		
 		return projects;
 	}
@@ -49,11 +49,11 @@ public class ProjectServiceBean implements ProjectService {
 	@Override
 	public Project findOne(Long id) {		
 		
-		 logger.info("> findOne id:{}", id);
+		 logger.info("> start Project findOne id:{}", id);
 		 
 		 Project project=projectDao.findOne(id);
 		 
-		 logger.info("< findOne id:{}", id);
+		 logger.info("< end Project findOne id:{}", id);
 		return project;
 	}
 
@@ -62,17 +62,17 @@ public class ProjectServiceBean implements ProjectService {
             propagation = Propagation.REQUIRED,
             readOnly = false)
 	public Project create(Project project) {
-		logger.info("> create");
+		logger.info("> start Projectcreate");
 		
 		if(project.getId()!=null){
 			logger.error(
-                    "Attempted to create a Greeting, but id attribute was not null.");
+                    "Attempted to create a Project, but id attribute was not null.");
             throw new EntityExistsException(
                     "The id attribute must be null to persist a new entity.");
 		}
 		
 		Project savedProject=projectDao.save(project);
-		logger.info("< create");
+		logger.info("< end Project create");
 		
 		return savedProject;
 	}
@@ -83,19 +83,19 @@ public class ProjectServiceBean implements ProjectService {
             readOnly = false)
 	public Project update(Project project) {
 		
-		logger.info("> update id:{}", project.getId());
+		logger.info("> start Project update id:{}", project.getId());
 		
 		Project projectToUpdate=findOne(project.getId());
 		if(projectToUpdate==null){
 			logger.error(
-                    "Attempted to update a Greeting, but the entity does not exist.");
+                    "Attempted to update a Project, but the entity does not exist.");
             throw new NoResultException("Requested entity not found.");
 		}
 		
 		projectToUpdate.setDescription(project.getDescription());
 		Project updatedProject=projectDao.save(projectToUpdate);
 		
-		logger.info("< update id:{}", project.getId());		
+		logger.info("< end Project update id:{}", project.getId());		
 			
 		return updatedProject;
 	}
@@ -105,11 +105,11 @@ public class ProjectServiceBean implements ProjectService {
             propagation = Propagation.REQUIRED,
             readOnly = false)
 	public void delete(Long id) {
-		logger.info("> delete id:{}", id);
+		logger.info("> start delete Project id:{}", id);
 		
 		projectDao.delete(id);
 		
-		logger.info("< delete id:{}", id);
+		logger.info("< end delete Project id:{}", id);
 		
 	}
 

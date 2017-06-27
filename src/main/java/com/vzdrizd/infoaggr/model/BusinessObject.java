@@ -4,6 +4,7 @@
 package com.vzdrizd.infoaggr.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -37,13 +39,19 @@ public class BusinessObject implements Serializable{/**
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	@Column(name = "name")
+	@Column(name = "name",unique = true,nullable=false)
 	 private String name;
 	 
 	@Column(name = "description")
 	private String description;
 	
 	@ManyToOne
-	@JoinColumn(name="project_id")
+	@JoinColumn(name="project_id",nullable=false)
 	private Project project;
+	
+	@OneToMany(mappedBy="inRelatedObject")	 
+	 private Set<Relation> inRelations;
+	
+	@OneToMany(mappedBy="outRelatedObject")	 
+	 private Set<Relation> outRelations;
 }

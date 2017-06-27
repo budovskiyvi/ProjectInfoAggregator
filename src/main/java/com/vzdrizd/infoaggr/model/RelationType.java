@@ -29,10 +29,5 @@ public class RelationType implements Serializable{
 	@Id
     @Column(name = "relation_type_cd")
 	private String code;
-	
-	@Column(name = "inName")
-	private String inName;
-	
-	@Column(name = "outName")
-	private String outName;
+
 }

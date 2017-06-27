@@ -39,7 +39,7 @@ public class Project implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	 @Column(name = "name")
+	 @Column(name = "name",unique = true,nullable=false)
 	 private String name;
 	 
 	 @Column(name = "description")

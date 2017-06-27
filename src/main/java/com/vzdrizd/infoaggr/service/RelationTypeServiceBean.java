@@ -65,23 +65,5 @@ public class RelationTypeServiceBean implements RelationTypeService {
 		return createdRelationType;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.vzdrizd.infoaggr.service.RelationTypeService#update(com.vzdrizd.infoaggr.model.RelationType)
-	 */
-	@Override
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-	public RelationType update(RelationType relationType) {
-
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.vzdrizd.infoaggr.service.RelationTypeService#delete(java.lang.String)
-	 */
-	@Override
-	public void delete(String code) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

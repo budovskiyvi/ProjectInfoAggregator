@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.vzdrizd.infoaggr.model.Project;
 
-@Repository
+
 public interface ProjectDao extends JpaRepository<Project,Long>{
 
 }

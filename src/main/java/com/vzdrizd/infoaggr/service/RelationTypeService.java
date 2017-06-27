@@ -18,7 +18,4 @@ public interface RelationTypeService {
 
 	RelationType create(RelationType relationType);
 
-	RelationType update(RelationType relationType);
-
-	void delete(String code);
 }
