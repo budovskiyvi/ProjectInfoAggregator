@@ -48,5 +48,5 @@ h2/
 .idea_modules
 .project
 RUNNING_PID
-h2.mv
-h2.trace
+h2.mv.db
+h2.trace.db

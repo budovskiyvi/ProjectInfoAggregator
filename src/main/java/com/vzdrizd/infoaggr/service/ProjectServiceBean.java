@@ -62,7 +62,7 @@ public class ProjectServiceBean implements ProjectService {
             propagation = Propagation.REQUIRED,
             readOnly = false)
 	public Project create(Project project) {
-		logger.info("> start Projectcreate");
+		logger.info("> start Project create");
 		
 		if(project.getId()!=null){
 			logger.error(
