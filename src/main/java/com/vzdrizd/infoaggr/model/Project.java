@@ -48,5 +48,10 @@ public class Project implements Serializable{
 	 @OneToMany(mappedBy="project")	 
 	 private Set<BusinessObject> businessObjects;
 	 
+	 public Project(String name, String description){
+		 this.name=name;
+		 this.description=description;
+	 }
+	 
 	 
 }

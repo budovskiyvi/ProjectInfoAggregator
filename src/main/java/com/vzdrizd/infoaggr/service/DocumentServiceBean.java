@@ -82,6 +82,9 @@ public class DocumentServiceBean implements DocumentService {
 	}
 
 	@Override
+	@Transactional(
+            propagation = Propagation.REQUIRED,
+            readOnly = false)
 	public Document update(Document document) {
 		logger.info("> start Document update id:{}", document.getId());
 		Document documentToUpdate = findOne(document.getId());
@@ -90,18 +93,20 @@ public class DocumentServiceBean implements DocumentService {
                     "Attempted to update a Document, but the entity does not exist.");
             throw new NoResultException("Requested entity not found.");
 		}
-		documentToUpdate.setDescription(document.getDescription());
-		
+		documentToUpdate.setUpdatebleFields(document);
+		Document updatedDocument=documentDao.save(documentToUpdate);
 		logger.info("< stop Document update id:{}", document.getId());
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.vzdrizd.infoaggr.service.DocumentService#delete(java.lang.Long)
-	 */
 	@Override
+	@Transactional(
+            propagation = Propagation.REQUIRED,
+            readOnly = false)
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		logger.info("> start delete Document id:{}", id);
+		documentDao.delete(id);
+		logger.info("< stop delete Document id:{}", id);
 
 	}
 

@@ -82,7 +82,7 @@ public class BusinessObjectServiceBean implements BusinessObjectService {
 			throw new NoResultException("Requested entity not found.");
 		}
 
-		businessObjectToUpdate.setDescription(businessObject.getDescription());
+		businessObjectToUpdate.setUpdatebleFields(businessObject);
 		BusinessObject updatedBusinessObject = businessObjectDao.save(businessObjectToUpdate);
 
 		logger.info("< update id:{}", businessObject.getId());
