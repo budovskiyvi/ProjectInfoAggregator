@@ -36,7 +36,7 @@ public class DocumentServiceTest extends AbstractTest{
 	
 	 @Before
 	 public void initEnvironment(){
-		 project = projectService.create(new Project("testName", "testDescr"));
+		 project = projectService.create(new Project("testName", "testDescr","fullTestDisc"));
 		 bo=businessObjectService.create(new BusinessObject("testName","Test Descrip",project));
 
 	 }

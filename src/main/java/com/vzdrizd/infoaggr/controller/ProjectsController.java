@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.vzdrizd.infoaggr.model.Project;
 import com.vzdrizd.infoaggr.service.ProjectService;
@@ -23,6 +24,14 @@ public class ProjectsController {
 	
 	@Autowired
 	private ProjectService projectService;
+	
+	@RequestMapping(value="/projects")
+	public ModelAndView directToProjectsPage()
+	{
+		
+		Collection<Project> projects=projectService.findAll();
+		return new ModelAndView("projects", "projects", projects);
+	}
 	
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {

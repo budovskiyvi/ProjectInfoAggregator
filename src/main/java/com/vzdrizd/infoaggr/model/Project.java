@@ -44,14 +44,22 @@ public class Project implements Serializable{
 	 
 	 @Column(name = "description")
 	 private String description;
+	 
+	 @Column(name = "full_description")
+	 private String fullDescription;
 
 	 @OneToMany(mappedBy="project")	 
 	 private Set<BusinessObject> businessObjects;
 	 
-	 public Project(String name, String description){
+	 public Project(String name, String description, String fullDescription){
 		 this.name=name;
 		 this.description=description;
+		 this.fullDescription=fullDescription;
 	 }
 	 
+	 public void setUpdatebleFields(Project project){
+		 this.description=project.description;
+		 this.fullDescription=project.fullDescription;
+	 }
 	 
 }

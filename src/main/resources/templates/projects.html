@@ -5,6 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <h1>Projects list</h1>
+    
+    <table>
+    	<tr>
+        	<th>NAME</th>
+        	<th>DESCRIPTION</th>
+      	</tr>
+      	<tr th:each="project : ${projects}">
+      		<td th:text="${project.name}"/>
+      		<td th:text="${project.description}"/>
+      	</tr>
+    </table>
 </body>
 </html>

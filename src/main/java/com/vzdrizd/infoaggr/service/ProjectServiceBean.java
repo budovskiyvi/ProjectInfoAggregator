@@ -92,7 +92,7 @@ public class ProjectServiceBean implements ProjectService {
             throw new NoResultException("Requested entity not found.");
 		}
 		
-		projectToUpdate.setDescription(project.getDescription());
+		projectToUpdate.setUpdatebleFields(project);
 		Project updatedProject=projectDao.save(projectToUpdate);
 		
 		logger.info("< end Project update id:{}", project.getId());		
