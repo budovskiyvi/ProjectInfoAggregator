@@ -8,11 +8,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vzdrizd.infoaggr.model.Project;
+import com.vzdrizd.infoaggr.service.BusinessObjectService;
 import com.vzdrizd.infoaggr.service.ProjectService;
 
 /**
@@ -25,12 +27,23 @@ public class ProjectsController {
 	@Autowired
 	private ProjectService projectService;
 	
+	@Autowired
+	private BusinessObjectService businessObjectService;
+	
 	@RequestMapping(value="/projects")
 	public ModelAndView directToProjectsPage()
 	{
 		
 		Collection<Project> projects=projectService.findAll();
 		return new ModelAndView("projects", "projects", projects);
+	}
+	
+	@RequestMapping(value="/project")
+	public ModelAndView project(@ModelAttribute("project") Project project)	
+	{
+		Long i=project.getId();
+		Long j=i;
+		return null;
 	}
 	
 	@RequestMapping("/greeting")

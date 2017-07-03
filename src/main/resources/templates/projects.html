@@ -3,19 +3,27 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
+    <div class="container">
     <h1>Projects list</h1>
-    
-    <table>
-    	<tr>
-        	<th>NAME</th>
-        	<th>DESCRIPTION</th>
-      	</tr>
-      	<tr th:each="project : ${projects}">
-      		<td th:text="${project.name}"/>
-      		<td th:text="${project.description}"/>
-      	</tr>
-    </table>
+	    <form action="#" th:action="project" th:object="${project}" method="post">
+		    <table class="table table-bordered">
+		    	<tr>
+		        	<th>NAME</th>
+		        	<th>DESCRIPTION</th>
+		      	</tr>
+		      	<tr th:each="project : ${projects}">
+		      		<td>	      			
+		      				<input type="hidden" id="id" name="id" th:value="${project.id}"/>
+		      			 	<input type="submit" class="btn btn-link" id="name" name="name" th:value="${project.name}"/>		      			
+		      		</td>
+		      		<td th:text="${project.description}"/>
+		      	</tr>
+		    </table>
+	    </form>
+    </div>
 </body>
 </html>
