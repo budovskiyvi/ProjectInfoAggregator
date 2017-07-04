@@ -4,6 +4,9 @@
 package com.vzdrizd.infoaggr.controller;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.vzdrizd.infoaggr.model.BusinessObject;
 import com.vzdrizd.infoaggr.model.Project;
 import com.vzdrizd.infoaggr.service.BusinessObjectService;
 import com.vzdrizd.infoaggr.service.ProjectService;
@@ -41,9 +45,12 @@ public class ProjectsController {
 	@RequestMapping(value="/project")
 	public ModelAndView project(@ModelAttribute("project") Project project)	
 	{
-		Long i=project.getId();
-		Long j=i;
-		return null;
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("project", project);
+		Project projectForBoSelect=projectService.findOne(project.getId());
+		Collection<BusinessObject> bos =businessObjectService.findByProject(projectForBoSelect);
+		model.put("bos", businessObjectService.findByProject(project));
+		return new ModelAndView("project","model",model);
 	}
 	
 	@RequestMapping("/greeting")

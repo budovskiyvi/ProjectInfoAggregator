@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.vzdrizd.infoaggr.dao.BusinessObjectDao;
 import com.vzdrizd.infoaggr.model.BusinessObject;
+import com.vzdrizd.infoaggr.model.Project;
 
 /**
  * @author V.Budovskiy
@@ -42,6 +43,15 @@ public class BusinessObjectServiceBean implements BusinessObjectService {
 
 		return businessObjects;
 	}
+	
+	@Override
+	public Collection<BusinessObject> findByProject(Project project) {
+		logger.info("> start BusinessObject findByProject");
+		Collection<BusinessObject> foundBO=businessObjectDao.findByProject(project);
+		logger.info("< end BusinessObject findByProject");
+		return foundBO;
+	}
+
 
 	@Override
 	public BusinessObject findOne(Long id) {

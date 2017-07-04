@@ -61,10 +61,10 @@ public class BusinessObject implements Serializable{/**
 	private Project project;
 	
 	@OneToMany(mappedBy="inRelatedObject")	 
-	 private Set<Relation> inRelations=new HashSet<>();;
+	 private Set<Relation> inRelations=new HashSet<>();
 	
 	@OneToMany(mappedBy="outRelatedObject")	 
-	 private Set<Relation> outRelations=new HashSet<>();;
+	 private Set<Relation> outRelations=new HashSet<>();
 	
 	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinTable(name = "bo_doc", 

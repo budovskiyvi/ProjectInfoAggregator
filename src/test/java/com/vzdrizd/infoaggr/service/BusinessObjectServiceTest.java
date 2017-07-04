@@ -30,8 +30,8 @@ public class BusinessObjectServiceTest extends AbstractTest{
 	public void onlyOnce() {
 		
 		testProject = new Project();
-		testProject.setName("Test Name");
-		testProject.setDescription("Test Descr");
+		testProject.setName("Test Name!");
+		testProject.setDescription("Test Descr!");
 		
 		createdProject = serviceProject.create(testProject);
 
